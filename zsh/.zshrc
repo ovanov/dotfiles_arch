@@ -137,7 +137,7 @@ cat ~/.cache/wal/sequences
 # To add support for TTYs this line can be optionally added.
 source ~/.cache/wal/colors-tty.sh
 
-alias walchange='wal -i /home/jova/Pictures/backgrounds'
+alias walchange='wal -i /home/jova/Tresors/privat/Bilder/backgrounds'
 
 #---------Loads------------
 #
