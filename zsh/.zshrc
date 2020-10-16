@@ -103,6 +103,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 #--------Alias-------
+#
+##.......UNIX........
+#
 alias reload='source ~/.zshrc'
 alias reloadtmux='tmux source ~/.tmux.conf'
 alias reloadbash='source ~/.bashrc'
@@ -111,28 +114,18 @@ alias lsll="exa -al --color=always --group-directories-first"
 alias r='ranger'
 alias c='clear'
 alias p3='python3'
-alias windr='~/Tresors/organic/Uni/Computerlinguistik'
-alias drive='~/Tresors/organic/Uni'
-alias expl='explorer.exe'
+alias wincl='~/Tresors/organic/Uni/Computerlinguistik'
+alias winal='~/Tresors/organic/Uni/Almanistik'
 alias ..='cd ..'
-alias tty-clock='tty-clock -C 4 -f "%A   %d %b %Y"'
+#
+##.......VPN.........
+#
 alias vpn-recent='sudo protonvpn r'
 alias vpn-new='sudo protonvpn c'
 alias vpn-dc='sudo protonvpn d'
-alias walchange='wal -i /home/jova/Pictures/backgrounds'
-alias config='/usr/bin/git --git-dir=$HOME/dotfiles_arch --work-tree=$HOME'
-#---------Loads------------
-xmodmap ~/.Xmodmap && xmodmap -e 'clear lock'
-nitrogen --restore
-#---------RANGER Fix-------
-ranger() {
-    if [ -z "$RANGER_LEVEL" ]; then
-        /usr/bin/ranger "$@"
-    else
-        exit
-    fi
-}
-#---------PyWal------------
+#
+##.......PyWal.......
+#
 # Import colorscheme from 'wal' asynchronously
 # &   # Run the process in the background.
 # ( ) # Hide shell job control messages.
@@ -143,3 +136,19 @@ cat ~/.cache/wal/sequences
 
 # To add support for TTYs this line can be optionally added.
 source ~/.cache/wal/colors-tty.sh
+
+alias walchange='wal -i /home/jova/Pictures/backgrounds'
+
+#---------Loads------------
+#
+xmodmap ~/.Xmodmap && xmodmap -e 'clear lock'
+nitrogen --restore
+
+#---------RANGER Fix-------
+ranger() {
+    if [ -z "$RANGER_LEVEL" ]; then
+        /usr/bin/ranger "$@"
+    else
+        exit
+    fi
+}
