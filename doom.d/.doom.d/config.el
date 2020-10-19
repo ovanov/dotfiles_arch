@@ -41,6 +41,7 @@
 (setq centaur-tabs-group-by-projectile-project t)
 (setq centaur-tabs-set-close-button nil)
 (setq centaur-tabs-set-modified-marker "*")
+(setq centaur-tabs-set-bar 'under)
 ;
 
 
