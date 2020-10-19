@@ -163,9 +163,7 @@
 ;;; ..... Company mode fix .....
 ;; adjusting the call of company
 ;
-(require 'company)
-(setq company-idle-delay 0.2
-      company-minimum-prefix-length 3)
 (after! python
-  (set-company-backend! 'python-mode))
+  (set-company-backend! 'python-mode 'company-jedi))
+
 ;

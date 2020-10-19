@@ -29,6 +29,7 @@
 (package! ewal-doom-themes)
 (package! ewal-spacemacs-themes)
 (package! simple-httpd)
+(package! company-jedi)
 
 ;; If you'd like to disable a package included with Doom, you can do so here
 ;; with the `:disable' property:
