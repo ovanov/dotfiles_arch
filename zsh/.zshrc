@@ -117,6 +117,8 @@ alias p3='python3'
 alias wincl='~/Tresors/organic/Uni/Computerlinguistik'
 alias winal='~/Tresors/organic/Uni/Almanistik'
 alias ..='cd ..'
+alias ssn='sudo shutdown now'
+alias sre='sudo reboot'
 #
 ##.......VPN.........
 #
@@ -138,11 +140,6 @@ cat ~/.cache/wal/sequences
 source ~/.cache/wal/colors-tty.sh
 
 alias walchange='wal -i /home/jova/Tresors/privat/Bilder/backgrounds'
-
-#---------Loads------------
-#
-xmodmap ~/.Xmodmap && xmodmap -e 'clear lock'
-nitrogen --restore
 
 #---------RANGER Fix-------
 ranger() {
