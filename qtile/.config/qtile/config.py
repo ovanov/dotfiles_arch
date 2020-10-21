@@ -8,7 +8,7 @@ from libqtile.command import lazy
 from libqtile import layout, bar, widget, hook
 from typing import List  # noqa: F401
 
-mod = "mod1"                                     # Sets mod key to SUPER/WINDOWS
+mod = "mod4"                                     # Sets mod key to SUPER/WINDOWS
 myTerm = "urxvt"                             # My terminal of choice
 myConfig = "/home/jova/.config/qtile/config.py"    # The Qtile config file location
 
