@@ -7,7 +7,7 @@ urxvt.foreground: #F8F8F2
 urxvt.font: xft:Cousine Nerd Font:pixelsize=15:weight=regular
 urxvt.boldFont: xft:Cousine Nerd Font:pixelsize=15:weight=bold
 urxvt.boldItalic: xft:Cousine Nerd Font:pixelsize=15:weight=italic
-urxvt.letterSpace: -1
+urxvt.letterSpace: 0
 !! Larger history limit
 urxvt.saveLines: 1000000
 
