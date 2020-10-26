@@ -152,5 +152,3 @@ ranger() {
 }
 #
 #--------Xmodmap fix-------
-xmodmap -e 'clear Mod1' &
-xmodmap -e 'add Mod1 = Alt_L Meta_L' &
