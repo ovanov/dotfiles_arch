@@ -27,7 +27,7 @@ keys = [
              desc='switch between windows',
              ),
          Key([mod], "e",
-             lazy.spawn([myTerm, "ranger"]),
+             lazy.spawn([myTerm, " -e ranger"]),
              desc='open Ranger'
              ),
          Key([mod, "shift"], "e",
@@ -250,10 +250,6 @@ def init_widgets_list():
                       padding = 7,
                       fontsize = 18
                       ),
-              # widget.Image(
-              #          filename = "~/.config/qtile/icons/python.png",
-              #          mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn('rofi -show drun -show-icons')}
-              #          ),
               widget.GroupBox(
                        font = "CousineNerd Font Bold",
                        fontsize = 30,
@@ -295,140 +291,26 @@ def init_widgets_list():
                        padding = 0,
                        fontsize = 13
                        ),
-              #widget.TextBox(
-              #         text = '',
-              #         background = colors[0],
-              #         foreground = colors[4],
-              #         padding = 0,
-              #         fontsize = 37
-              #         ),
-              #widget.TextBox(
-              #         text = " ₿",
-              #         padding = 0,
-              #         foreground = colors[2],
-              #         background = colors[4],
-              #         fontsize = 12
-              #         ),
-              #widget.BitcoinTicker(
-              #         foreground = colors[2],
-              #         background = colors[4],
-              #         padding = 5
-              #         ),
-              #widget.TextBox(
-              #         text = '',
-              #         background = colors[4],
-              #         foreground = colors[5],
-              #         padding = 0,
-              #         fontsize = 35
-              #         ),
-              #widget.TextBox(
-              #         text = " 🌡",
-              #         padding = 2,
-              #         foreground = colors[2],
-              #         background = colors[5],
-              #         fontsize = 11
-              #         ),
-              #widget.ThermalSensor(
-              #         foreground = colors[2],
-              #         background = colors[5],
-              #         threshold = 90,
-              #         padding = 5
-              #         ),
-              #widget.TextBox(
-              #         text='',
-              #         background = colors[0],
-              #         foreground = colors[7],
-              #         padding = 0,
-              #         fontsize = 30
-              #         ),
-              #widget.TextBox(
-              #         text = " ⟳",
-              #         padding = 2,
-              #         foreground = colors[2],
-              #         background = colors[7],
-              #         fontsize = 16
-              #         ),
-              #widget.Pacman(
-              #         update_interval = 1800,
-              #         foreground = colors[2],
-              #         mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(myTerm + ' -e sudo pacman -Syu')},
-              #         background = colors[7]
-              #         ),
-              #widget.TextBox(
-              #         text = "Updates",
-              #         padding = 5,
-              #         mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(myTerm + ' -e sudo pacman -Syu')},
-              #         foreground = colors[2],
-              #         background = colors[7]
-              #         ),
-              #widget.TextBox(
-              #         text = '',
-              #         background = colors[4],
-              #         foreground = colors[5],
-              #         padding = 0,
-              #         fontsize = 35
-              #         ),
-              #widget.TextBox(
-              #         text = " 🖬",
-              #         foreground = colors[2],
-              #         background = colors[5],
-              #         padding = 0,
-              #         fontsize = 14
-              #         ),
-              #widget.Memory(
-              #         foreground = colors[2],
-              #         background = colors[5],
-              #         mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(myTerm + ' -e htop')},
-              #         padding = 5
-              #         ),
-              #widget.TextBox(
-              #         text='',
-              #         background = colors[5],
-              #         foreground = colors[4],
-              #         padding = 0,
-              #         fontsize = 35
-              #         ),
-              # widget.TextBox(
-              #          text = "參",
-              #          foreground = colors[2],
-              #          background = colors[0],
-              #          padding = 0,
-              #          fontsize = 16
-              #          ),
-              # widget.Net(
-              #         interface = "enp6s0",
-              #         format = '{down} ↓↑ {up}',
-              #         foreground = colors[2],
-              #         background = colors[4],
-              #         padding = 10
-              #         ),
-              # widget.Sep(
-              #          linewidth = 1,
-              #          padding = 15,
-              #          foreground = colors[2],
-              #          background = colors[0]
-              #          ),
-              # # widget.TextBox(
-              #         text = '',
-              #         background = colors[7],
-              #         foreground = colors[5],
-              #         padding = -6,
-              #         fontsize = 40
-              #         ),
-              #widget.TextBox(
-              #        text = " Battery:",
-              #         foreground = colors[2],
-              #         background = colors[0],
-              #         padding = 0
-              #         ),
-              #widget.BatteryIcon(
-              #         foreground = colors[2],
-              #         background = colors[0],
-              #         battery = 'battery_BAT1'
-              #         padding = 10,
-              #         update_interval = 20,
-              #         fmt = '{char}'
-              #         ),
+              widget.TextBox(
+                      text = "🖬",
+                      foreground = colors[2],
+                      background = colors[0],
+                      padding = 4,
+                      fontsize = 16
+                      ),
+              widget.Memory(
+                      font = "CousineNerd Font Bold",
+                      foreground = colors[2],
+                      background = colors[0],
+                      mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(myTerm + ' -e htop')},
+                      padding = 5
+                      ),
+              widget.Sep(
+                       linewidth = 1,
+                       padding = 15,
+                       foreground = colors[2],
+                       background = colors[0]
+                       ),
               widget.TextBox(
                        text = "ﱘ",
                        foreground = colors[2],
@@ -449,13 +331,6 @@ def init_widgets_list():
                        foreground = colors[2],
                        background = colors[0]
                        ),
-              #widget.TextBox(
-              #         text = '',
-              #         background = colors[5],
-              #         foreground = colors[7],
-              #         padding = -6,
-              #         fontsize = 40
-              #         ),
               widget.CurrentLayoutIcon(
                        custom_icon_paths = [os.path.expanduser("~/.config/qtile/icons")],
                        foreground = colors[2],
@@ -475,13 +350,6 @@ def init_widgets_list():
                        foreground = colors[2],
                        background = colors[0]
                        ),
-              #widget.TextBox(
-              #         text = '',
-              #         background = colors[7],
-              #         foreground = colors[5],
-              #         padding = -6,
-              #         fontsize = 40
-              #         ),
               widget.TextBox(
                       text = "",
                        foreground = colors[2],

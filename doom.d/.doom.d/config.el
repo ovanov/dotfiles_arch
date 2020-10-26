@@ -23,11 +23,20 @@
 ;; + `doom-big-font' -- used for `doom-big-font-mode'; use this for
 ;;   presentations or streaming.
 ;
-(setq doom-font (font-spec :family "Cousine Nerd Font Mono" :size 15))
+(setq doom-font (font-spec :family "Cousine Nerd Font Mono" :size 15)
+      doom-variable-pitch-font (font-spec :family "Ubuntu Nerd Font" :size 15)
+      doom-big-font (font-spec :family "Cousine Nerd Font Mono" :size 24))
+(after! doom-themes
+  (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t))
+(custom-set-faces!
+  '(font-lock-comment-face :slant italic)
+  '(font-lock-keyword-face :slant italic))
+
 (setq-default line-spacing 0.2)
 
 (use-package ewal-doom-themes)
-(setq doom-theme 'ewal-spacemacs-modern)
+(setq doom-theme 'doom-ephemeral)
 ;
 
 
