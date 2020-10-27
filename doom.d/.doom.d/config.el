@@ -36,7 +36,7 @@
 (setq-default line-spacing 0.2)
 
 (use-package ewal-doom-themes)
-(setq doom-theme 'doom-ephemeral)
+(setq doom-theme 'doom-sourcerer)
 ;
 
 

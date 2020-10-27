@@ -27,7 +27,7 @@ keys = [
              desc='switch between windows',
              ),
          Key([mod], "e",
-             lazy.spawn([myTerm, " -e ranger"]),
+             lazy.spawncmd(),
              desc='open Ranger'
              ),
          Key([mod, "shift"], "e",
