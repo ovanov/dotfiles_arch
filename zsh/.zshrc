@@ -117,6 +117,7 @@ alias p3='python3'
 alias wincl='~/Tresors/organic/Uni/Computerlinguistik'
 alias winal='~/Tresors/organic/Uni/Almanistik'
 alias winpriv='~/Tresors/privat'
+alias bakgr='~/Tresors/privat/Bilder/backgrounds'
 alias hdd='/run/media/HDD'
 alias ..='cd ..'
 alias ssn='sudo shutdown now'
@@ -142,6 +143,10 @@ cat ~/.cache/wal/sequences
 source ~/.cache/wal/colors-tty.sh
 
 alias walchange='wal -i /home/jova/Tresors/privat/Bilder/backgrounds'
+alias walvillage='wal -i /home/jova/Tresors/privat/Bilder/backgrounds/village_in_alps.jpg'
+alias wallight='wal -i /home/jova/Tresors/privat/Bilder/backgrounds/beach_with_palm.png'
+alias walneutr='wal -i /home/jova/Tresors/privat/Bilder/backgrounds/osaka-awaza-junction.jpg'
+alias walsyx='wal -i /home/jova/Tresors/privat/Bilder/backgrounds/ami_car_dark.png'
 
 #---------RANGER Fix-------
 ranger() {
