@@ -350,6 +350,16 @@ def init_widgets_list():
                        foreground = colors[2],
                        background = colors[0]
                        ),
+              widget.Systray(
+                       background = colors[0],
+                       padding = 5
+                       ),
+              widget.Sep(
+                       linewidth = 0,
+                       padding = 8,
+                       foreground = colors[2],
+                       background = colors[0]
+                       ),
               widget.TextBox(
                       text = "",
                        foreground = colors[2],
@@ -362,17 +372,7 @@ def init_widgets_list():
                        font = "Cousine Nerd Font Bold",
                        foreground = colors[2],
                        background = colors[0],
-                       format = "%d.%B  %H:%M "
-                       ),
-              widget.Sep(
-                       linewidth = 0,
-                       padding = 8,
-                       foreground = colors[2],
-                       background = colors[0]
-                       ),
-              widget.Systray(
-                       background = colors[0],
-                       padding = 5
+                       format = "%d.%b  %H:%M "
                        ),
               ]
     return widgets_list
@@ -383,7 +383,7 @@ def init_widgets_screen1():
 
 def init_widgets_screen2():
     widgets_screen2 = init_widgets_list()
-    return widgets_screen2                       # Monitor 2 will display all widgets in widgets_list
+    return widgets_screen2[:6]                       # Monitor 2 will display all widgets in widgets_list
 
 def init_screens():
     return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=1.0, size=20)),

@@ -1,7 +1,8 @@
-#!/bin/sh
-
+#!/bin/bash
 nitrogen --restore &
 picom &
+urxvtd -q -o -f &
+/usr/bin/emacs --daemon &
 xmodmap ~/.Xmodmap &
 xmodmap -e 'clear lock' &
 xmodmap -e 'clear Mod1' &
