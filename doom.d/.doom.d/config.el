@@ -129,10 +129,10 @@
 ;;; .....  ORG ROAM .....
 ;;
 ;
-(use-package org-roam
-     :custom
-     (org-roam-directory "~/Tresors/organic")
-     )
+;(use-package org-roam
+;     :custom
+;     (org-roam-directory "~/Tresors/organic")
+;     )
 ;
 
 
@@ -141,13 +141,13 @@
 ;;; .....  ORG ROAM SERVER .....
 ;;
 ;
-(require 'org-roam-protocol)
-(setq httpd-root "/var/www")
-;;(httpd-start)  ; disabled so that httpd does not automatically start
-(use-package org-roam-server
-  :ensure nil
-  :load-path "~/.doom.d/lisp/org-roam-server")
-(require 'simple-httpd)
+;(require 'org-roam-protocol)
+;(setq httpd-root "/var/www")
+;;;(httpd-start)  ; disabled so that httpd does not automatically start
+;(use-package org-roam-server
+;  :ensure nil
+;  :load-path "~/.doom.d/lisp/org-roam-server")
+;(require 'simple-httpd)
 ;
 
 
