@@ -1,2 +1,2 @@
 #-------Wal Color--------
-wal -Rq
+wal -Rqn

@@ -1,4 +1,7 @@
-;; -*- no-byte-compile: t; -*-
+;;; package ---- Summary:
+;;; Comentary:
+;;;
+;; no-byte-compile: t; -*-
 ;;; $DOOMDIR/packages.el
 
 ;; To install a package with Doom you must declare them here and run 'doom sync'
@@ -21,7 +24,8 @@
 ;(package! this-package
 ;  :recipe (:host github :repo "username/repo"
 ;           :files ("some-file.el" "src/lisp/*.el")))
-
+;;; Code:
+;;;
 (package! evil-multiedit)
 
 (package! org-superstar)
@@ -31,6 +35,7 @@
 (package! ewal-spacemacs-themes)
 (package! simple-httpd)
 (package! company-jedi)
+(package! org-roam-server)
 
 ;; If you'd like to disable a package included with Doom, you can do so here
 ;; with the `:disable' property:

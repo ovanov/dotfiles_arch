@@ -7,7 +7,7 @@
 ;;
 ;; set custom banner
 ;
-(setq fancy-splash-image "~/Tresors/privat/Bilder/Saved Pictures/logos/emacs_300px.png")
+(setq fancy-splash-image "~/Tresors/privat/Bilder/Saved Pictures/logos/bauhaus_logo_250px.png")
 ;
 
 
@@ -36,7 +36,7 @@
 (setq-default line-spacing 0.2)
 
 (use-package ewal-doom-themes)
-(setq doom-theme 'doom-dark+)
+(setq doom-theme 'doom-henna)
 ;
 
 
@@ -129,25 +129,55 @@
 ;;; .....  ORG ROAM .....
 ;;
 ;
-;(use-package org-roam
-;     :custom
-;     (org-roam-directory "~/Tresors/organic")
-;     )
+(use-package org-roam
+  :ensure t
+  :hook
+  (after-init . org-roam-mode)
+  :custom
+  (org-roam-directory "~/Tresors/organic")
+  (org-roam-buffer-position 'right)
+  (org-roam-buffer-height 0.06)
+  (org-roam-buffer-width 0.15)
+  ;; (setq org-roam-index-file "index.org")
+  )
 ;
 
+(after! org-roam
+        (map! :leader
+            :prefix "r"
+            :desc "ROAM toggle buffer" "r" #'org-roam
+            :desc "ROAM insert link" "i" #'org-roam-insert
+            :desc "ROAM switch buffer" "b" #'org-roam-switch-to-buffer
+            :desc "ROAM todays Interdiu" "t t" #'org-roam-dailies-today
+            :desc "ROAM yesterdays Interdiu" "t y" #'org-roam-dailies-yesterday
+            :desc "ROAM yesterdays Interdiu" "t m" #'org-roam-dailies-tomorrow
+            :desc "ROAM find-file" "f" #'org-roam-find-file
+            :desc "ROAM open roam key" "k" #'open-roam-key ;; own function (-> 'save keyboard macro as lisp function')
+            :desc "httpd-serve-directory" "s" #'httpd-serve-directory
+            :desc "ROAM toggle server" "S" #'org-roam-server-mode
+            :desc "ROAM show graph" "g" #'org-roam-show-graph
+            :desc "ROAM capture" "c" #'org-roam-capture
+            :desc "ROAM clear database cache" "d c" #'org-roam-db-clear
+            :desc "ROAM build database cache" "d b" #'org-roam-db-build-cache
+            :desc "ORG jump to next link" "l" #'org-next-link
+            :desc "ORG jump to prev link" "h" #'org-previous-link
+            )
+        )
 
+(fset 'open-roam-key
+   (kmacro-lambda-form [?/ ?r ?o ?a ?m ?_ ?k ?e ?y return escape ?f ?. return] 0 "%d"))
 
 
 ;;; .....  ORG ROAM SERVER .....
 ;;
 ;
-;(require 'org-roam-protocol)
-;(setq httpd-root "/var/www")
-;;;(httpd-start)  ; disabled so that httpd does not automatically start
-;(use-package org-roam-server
-;  :ensure nil
-;  :load-path "~/.doom.d/lisp/org-roam-server")
-;(require 'simple-httpd)
+(require 'org-roam-protocol)
+(setq httpd-root "/var/www")
+;(httpd-start)  ; disabled so that httpd does not automatically start
+(use-package org-roam-server
+ :ensure nil
+ :load-path "~/.doom.d/lisp/org-roam-server")
+(require 'simple-httpd)
 ;
 
 

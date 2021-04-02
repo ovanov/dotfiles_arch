@@ -9,7 +9,7 @@ from libqtile import layout, bar, widget, hook
 from typing import List  # noqa: F401
 
 mod = "mod4"                                     # Sets mod key to SUPER/WINDOWS
-myTerm = "urxvt"                             # My terminal of choice
+myTerm = "alacritty"                             # My terminal of choice
 myConfig = "/home/jova/.config/qtile/config.py"    # The Qtile config file location
 
 keys = [
@@ -26,17 +26,9 @@ keys = [
              lazy.spawn("rofi -show window"),
              desc='switch between windows',
              ),
-         Key([mod], "e",
-             lazy.spawncmd(),
-             desc='open Ranger'
-             ),
          Key([mod, "shift"], "e",
              lazy.spawn("pcmanfm"),
              desc='open Nemo'
-             ),
-         Key(["mod4"], "e",
-             lazy.spawn([myTerm, "-e ranger"]),
-             desc='open ranger'
              ),
          Key([mod, "shift"], "Tab",
              lazy.next_layout(),
@@ -161,13 +153,13 @@ keys = [
 ]
 
 group_names = [("", {'layout': 'monadtall'}),
-               ("", {'layout': 'monadtall'}),
+               ("爵", {'layout': 'monadtall'}),
                ("", {'layout': 'monadtall'}),
                ("", {'layout': 'monadtall'}),
                ("", {'layout': 'monadtall'}),
                ("", {'layout': 'monadtall'}),
                ("", {'layout': 'monadtall'}),
-               ("", {'layout': 'monadtall'}),
+               ("", {'layout': 'floating'}),
                ("", {'layout': 'floating'})]
 
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
@@ -252,7 +244,7 @@ def init_widgets_list():
                       ),
               widget.GroupBox(
                        font = "CousineNerd Font Bold",
-                       fontsize = 18,
+                       fontsize = 28,
                        margin_y = 3,
                        margin_x = 2,
                        padding_y = 7,
@@ -383,7 +375,8 @@ def init_widgets_screen1():
 
 def init_widgets_screen2():
     widgets_screen2 = init_widgets_list()
-    return widgets_screen2[:6]                       # Monitor 2 will display all widgets in widgets_list
+    del widgets_screen2[6:11]
+    return widgets_screen2                       # Monitor 2 will display all widgets in widgets_list
 
 def init_screens():
     return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=1.0, size=20)),
