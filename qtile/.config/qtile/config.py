@@ -9,7 +9,7 @@ from libqtile import layout, bar, widget, hook
 from typing import List  # noqa: F401
 
 mod = "mod4"                                     # Sets mod key to SUPER/WINDOWS
-myTerm = "alacritty"                             # My terminal of choice
+myTerm = "urxvt"                             # My terminal of choice
 myConfig = "/home/jova/.config/qtile/config.py"    # The Qtile config file location
 
 keys = [

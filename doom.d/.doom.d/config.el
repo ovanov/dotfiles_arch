@@ -36,7 +36,7 @@
 (setq-default line-spacing 0.2)
 
 (use-package ewal-doom-themes)
-(setq doom-theme 'doom-henna)
+(setq doom-theme 'doom-spacegrey)
 ;
 
 
@@ -171,14 +171,31 @@
 ;;; .....  ORG ROAM SERVER .....
 ;;
 ;
-(require 'org-roam-protocol)
-(setq httpd-root "/var/www")
-;(httpd-start)  ; disabled so that httpd does not automatically start
-(use-package org-roam-server
- :ensure nil
- :load-path "~/.doom.d/lisp/org-roam-server")
-(require 'simple-httpd)
+;; (require 'org-roam-protocol)
+;; (setq httpd-root "/var/www")
+;; ;(httpd-start)  ; disabled so that httpd does not automatically start
+;; (use-package org-roam-server
+;;  :ensure nil
+;;  :load-path "~/.doom.d/lisp/org-roam-server")
+;; (require 'simple-httpd)
 ;
+
+(use-package org-roam-server
+  :ensure t
+  :config
+  (setq org-roam-server-host "127.0.0.1"
+        org-roam-server-port 8080
+        org-roam-server-authenticate nil
+        org-roam-server-export-inline-images t
+        org-roam-server-serve-files nil
+        org-roam-server-served-file-extensions '("pdf" "mp4" "ogv")
+        org-roam-server-network-poll t
+        org-roam-server-network-arrows nil
+        org-roam-server-network-label-truncate t
+        org-roam-server-network-label-truncate-length 60
+        org-roam-server-network-label-wrap-length 20))
+;
+
 
 
 
