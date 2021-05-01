@@ -162,6 +162,8 @@
             :desc "ORG jump to next link" "l" #'org-next-link
             :desc "ORG jump to prev link" "h" #'org-previous-link
             )
+        (define-key evil-normal-state-map (kbd "L") 'org-next-link)
+        (define-key evil-normal-state-map (kbd "H") 'org-previous-link)
         )
 
 (fset 'open-roam-key
