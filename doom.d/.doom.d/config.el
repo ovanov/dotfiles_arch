@@ -130,7 +130,6 @@
 ;;
 ;
 (use-package org-roam
-  :ensure t
   :hook
   (after-init . org-roam-mode)
   :custom
@@ -183,7 +182,6 @@
 ;
 
 (use-package org-roam-server
-  :ensure t
   :config
   (setq org-roam-server-host "127.0.0.1"
         org-roam-server-port 8080
@@ -229,3 +227,12 @@
 
 (add-hook 'python-mode-hook 'my/python-mode-hook)
 ;
+;; Set $DICPATH to "$HOME/Library/Spelling" for hunspell.
+(setenv
+  "DICPATH"
+  (concat (getenv "HOME") "/usr/share/hunspell/"))
+;; Tell ispell-mode to use hunspell.
+(setq
+  ispell-program-name
+  "/usr/local/bin/hunspell")
+;;; config.el ends here
