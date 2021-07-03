@@ -3,6 +3,7 @@ urxvt.termName: rxvt-unicode
 urxvt.scrollBar: false
 urxvt.background: #1E1F29
 urxvt.foreground: #F8F8F2
+
 !! Font prefferenes
 urxvt.font: xft:JetBrainsMono Nerd Font:pixelsize=15:weight=regular
 urxvt.boldFont: xft:JetBrainsMono Nerd Font:pixelsize=15:weight=bold
@@ -47,6 +48,11 @@ URxvt.color13:      rgb:AD/7F/A8
 URxvt.color14:      rgb:34/E2/E2
 URxvt.color15:      rgb:EE/EE/EC
 URxvt.colorBD:      rgb:ff/ff/ff
+
+!! Cursor settings
+URxvt.cursorBlink: 1
+URxvt.cursorUnderline: 1
+URxvt.fading: 5
 
 !! Mouse Scroll
 URxvt.secondaryWheel: 1

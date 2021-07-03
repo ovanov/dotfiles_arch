@@ -6,8 +6,8 @@
 ;;;  ..... DOOM DASHBOARD .....
 ;;
 ;; set custom banner
-;
-(setq fancy-splash-image "~/Tresors/privat/Bilder/Saved Pictures/logos/bauhaus_logo_250px.png")
+;;; Code:
+(setq fancy-splash-image "~/Tresors/privat/Bilder/Saved Pictures/logos/emacs_400px.png")
 ;
 
 
@@ -235,4 +235,14 @@
 (setq
   ispell-program-name
   "/usr/local/bin/hunspell")
+
+
+
+;;; ........ yas snippet ........
+;;
+;
+(yas-global-mode 1)
+(add-hook 'yas-minor-mode-hook (lambda ()
+                                 (yas-activate-extra-mode 'fundamental-mode)))
+
 ;;; config.el ends here
