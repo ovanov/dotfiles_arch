@@ -1,6 +1,16 @@
 # -*- coding: utf-8 -*-
+
+#        _   _ _                         __ _       
+#       | | (_) |                       / _(_)      
+#   __ _| |_ _| | ___    ___ ___  _ __ | |_ _  __ _ 
+#  / _` | __| | |/ _ \  / __/ _ \| '_ \|  _| |/ _` |
+# | (_| | |_| | |  __/ | (_| (_) | | | | | | | (_| |
+#  \__, |\__|_|_|\___|  \___\___/|_| |_|_| |_|\__, |
+#     | |                                      __/ |
+#     |_|                                     |___/ 
+
+
 import os
-import re
 import socket
 import subprocess
 from libqtile.config import Key, Screen, Group, Drag, Click
@@ -9,7 +19,7 @@ from libqtile import layout, bar, widget, hook
 from typing import List  # noqa: F401
 
 mod = "mod4"                                     # Sets mod key to SUPER/WINDOWS
-myTerm = "urxvt"                             # My terminal of choice
+myTerm = "alacritty"                             # My terminal of choice
 myConfig = "/home/jova/.config/qtile/config.py"    # The Qtile config file location
 
 keys = [
@@ -168,6 +178,16 @@ for i, (name, kwargs) in enumerate(group_names, 1):
     keys.append(Key([mod], str(i), lazy.group[name].toscreen()))        # Switch to another group
     keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name))) # Send current window to another group
 
+colors = []
+cache='/home/jova/.cache/wal/colors'
+def load_colors(cache):
+    with open(cache, 'r') as file:
+        for i in range(8):
+            colors.append(file.readline().strip())
+    colors.append('#ffffff')
+    lazy.reload()
+load_colors(cache)
+
 layout_theme = {"border_width": 3,
                 "margin": 9,
                 "border_focus": "#c0c0c0",
@@ -205,14 +225,14 @@ layouts = [
 ]
 
 
-colors = [["#0C0C0C", "#0C0C0C"], # panel background
-          ["#434758", "#434758"], # background for current screen tab
-          ["#ffffff", "#ffffff"], # font color for group names
-          ["#ff5555", "#ff5555"], # border line color for current tab
-          ["#8d62a9", "#8d62a9"], # border line color for other tab and odd widgets
-          ["#668bd7", "#668bd7"], # color for the even widgets
-          ["#e1acff", "#e1acff"], # window name
-          ["#6272a4", "#6272a4"]]
+# colors = [["#0C0C0C", "#0C0C0C"], # panel background
+          # ["#434758", "#434758"], # background for current screen tab
+          # ["#ffffff", "#ffffff"], # font color for group names
+          # ["#ff5555", "#ff5555"], # border line color for current tab
+          # ["#8d62a9", "#8d62a9"], # border line color for other tab and odd widgets
+          # ["#668bd7", "#668bd7"], # color for the even widgets
+          # ["#e1acff", "#e1acff"], # window name
+          # ["#6272a4", "#6272a4"]]
 
 
 
@@ -238,35 +258,35 @@ def init_widgets_list():
               widget.TextBox(
                       text = '',
                       background = colors[0],
-                      foreground = colors[2],
+                      foreground = colors[7],
                       padding = 7,
                       fontsize = 18
                       ),
               widget.GroupBox(
-                       font = "CousineNerd Font Bold",
+                       font = "JetBrainsMono Bold",
                        fontsize = 28,
                        margin_y = 3,
                        margin_x = 2,
                        padding_y = 7,
                        padding_x = 3,
                        borderwidth = 3,
-                       active = colors[2],
-                       inactive = colors[2],
+                       active = colors[6],
+                       inactive = colors[1],
                        rounded = False,
-                       highlight_color = colors[1],
+                       highlight_color = colors[0],
                        highlight_method = "line",
-                       this_current_screen_border = "#c0c0c0",
-                       this_screen_border = colors [4],
-                       other_current_screen_border = colors[0],
-                       other_screen_border = colors[0],
+                       this_current_screen_border = colors[7], #"#c0c0c0"
+                       this_screen_border = colors [7],
+                       other_current_screen_border = colors[1],
+                       other_screen_border = colors[1],
                        foreground = colors[2],
                        background = colors[0]
                        ),
               widget.Prompt(
                        prompt = prompt,
-                       font = "CousineNerd Font Bold",
+                       font = "JetBrainsMono Bold",
                        padding = 11,
-                       foreground = colors[2],
+                       foreground = colors[6],
                        background = colors[0],
                        fontsize = 14
                        ),
@@ -277,22 +297,22 @@ def init_widgets_list():
                        background = colors[0]
                        ),
               widget.WindowName(
-                       foreground = colors[2],
-                       font = "CousineNerd Font Bold",
+                       foreground = colors[6],
+                       font = "JetBrainsMono Bold",
                        background = colors[0],
                        padding = 0,
                        fontsize = 13
                        ),
               widget.TextBox(
                       text = "🖬",
-                      foreground = colors[2],
+                      foreground = colors[7],
                       background = colors[0],
                       padding = 4,
                       fontsize = 16
                       ),
               widget.Memory(
-                      font = "CousineNerd Font Bold",
-                      foreground = colors[2],
+                      font = "JetBrainsMono Bold",
+                      foreground = colors[6],
                       background = colors[0],
                       mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(myTerm + ' -e htop')},
                       padding = 5
@@ -305,15 +325,15 @@ def init_widgets_list():
                        ),
               widget.TextBox(
                        text = "ﱘ",
-                       foreground = colors[2],
+                       foreground = colors[7],
                        mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn('pavucontrol')},
                        background = colors[0],
                        padding = 4,
                        fontsize = 16
                        ),
               widget.Volume(
-                       font = "CousineNerd Font Bold",
-                       foreground = colors[2],
+                       font = "JetBrainsMono Bold",
+                       foreground = colors[6],
                        background = colors[0],
                        padding = 10
                        ),
@@ -325,14 +345,14 @@ def init_widgets_list():
                        ),
               widget.CurrentLayoutIcon(
                        custom_icon_paths = [os.path.expanduser("~/.config/qtile/icons")],
-                       foreground = colors[2],
+                       foreground = colors[7],
                        background = colors[0],
                        padding = 0,
                        scale = 0.7
                        ),
               widget.CurrentLayout(
-                       font = "Cousine Nerd Font Bold",
-                       foreground = colors[2],
+                       font = "JetBrainsMono Bold",
+                       foreground = colors[6],
                        background = colors[0],
                        padding = 10
                        ),
@@ -354,15 +374,15 @@ def init_widgets_list():
                        ),
               widget.TextBox(
                       text = "",
-                       foreground = colors[2],
+                       foreground = colors[7],
                        mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn('orage')},
                        background = colors[0],
                        padding = 13,
                        fontsize = 17
                        ),
               widget.Clock(
-                       font = "Cousine Nerd Font Bold",
-                       foreground = colors[2],
+                       font = "JetBrainsMono Bold",
+                       foreground = colors[6],
                        background = colors[0],
                        format = "%d.%b  %H:%M "
                        ),
