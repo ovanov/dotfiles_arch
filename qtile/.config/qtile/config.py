@@ -188,10 +188,10 @@ def load_colors(cache):
     lazy.reload()
 load_colors(cache)
 
-layout_theme = {"border_width": 3,
-                "margin": 9,
-                "border_focus": "#c0c0c0",
-                "border_normal": "1D2330"
+layout_theme = {"border_width": 4,
+                "margin": 8,
+                "border_focus": colors[7], #"#c0c0c0"
+                "border_normal": colors[0] #"1D2330"
                 }
 
 layouts = [
@@ -270,15 +270,15 @@ def init_widgets_list():
                        padding_y = 7,
                        padding_x = 3,
                        borderwidth = 3,
-                       active = colors[6],
+                       active = colors[7],
                        inactive = colors[1],
                        rounded = False,
                        highlight_color = colors[0],
                        highlight_method = "line",
                        this_current_screen_border = colors[7], #"#c0c0c0"
-                       this_screen_border = colors [7],
-                       other_current_screen_border = colors[1],
                        other_screen_border = colors[1],
+                       other_current_screen_border = colors[2],
+                       this_screen_border = colors [2],
                        foreground = colors[2],
                        background = colors[0]
                        ),
