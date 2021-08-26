@@ -22,6 +22,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'kyazdani42/nvim-web-devicons'
 
     "" Colorscheme
+    Plug 'ap/vim-css-color'
     Plug 'joshdick/onedark.vim'
 
     "Terminal
