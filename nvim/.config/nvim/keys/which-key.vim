@@ -27,6 +27,7 @@ let g:which_key_map.f = {
     \'name' : '+file' ,
     \ 'f' : [':Files'    , 'Files in project'],
     \ 'l' : [':Lines'    , 'Lines in Project'],
+    \ 'p' : [':e ~/.config/nvim/init.vim'    , 'Personal config'],
     \}
 
 nnoremap <silent> <leader>fs :update<CR>
@@ -112,10 +113,18 @@ let g:which_key_map.t = {
       \ 'name' : '+terminal' ,
       \ ';' : [':FloatermNew --wintype=float --height=6 --position=bottom' , 'popup'],
       \ 'f' : [':FloatermNew fzf'     , 'fzf'],
+      \ 'g' : [':FloatermNew gtop'     , 'gtop'],
       \ 'p' : [':FloatermNew python'  , 'python'],
       \ 't' : [':FloatermNew'         , 'toggle'],
       \ 'h' : [':FloatermNew htop'    , 'ytop'],
       \ }
 "
+let g:which_key_map.d = {
+            \ 'name' : 'Directory' ,
+            \ 'h' : [':cd ~'       , 'home'],
+            \ 'u' : [':cd ~/Tresors/Uni', 'Uni'],
+            \ 'w' : [':cd ~/Tresors/dev/python/web', 'web'],
+            \}
+
 "" Register which key map
 call which_key#register('<Space>', "g:which_key_map")

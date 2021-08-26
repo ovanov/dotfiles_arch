@@ -45,6 +45,8 @@ source $HOME/.config/nvim/keys/which-key.vim
 
 "" Coc setup language support
 source $HOME/.config/nvim/plug-config/coc.vim
+" MarkdownPreview
+source $HOME/.config/nvim/plug-config/md-preview.vim
 
 
 

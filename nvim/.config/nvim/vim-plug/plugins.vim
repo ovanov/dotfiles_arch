@@ -73,9 +73,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'neoclide/coc.nvim', {'branch': 'release'} 
     " Snippets
     Plug 'honza/vim-snippets' 
+    " Markdown preview
+    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
     " LSP language servers
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'hrsh7th/nvim-compe'
+    "Plug 'neovim/nvim-lspconfig'
+    "Plug 'hrsh7th/nvim-compe'
 
 call plug#end()

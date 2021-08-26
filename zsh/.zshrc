@@ -1,3 +1,10 @@
+#           | |             
+#    _______| |__  _ __ ___ 
+#   |_  / __| '_ \| '__/ __|
+#  _ / /\__ \ | | | | | (__ 
+# (_)___|___/_| |_|_|  \___|
+#                           
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -8,7 +15,8 @@ export ZSH="/home/jova/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="Soliah"
+#
+ZSH_THEME="arrow"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -45,6 +53,8 @@ ZSH_THEME="Soliah"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
+# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
+# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -68,10 +78,11 @@ ZSH_THEME="Soliah"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git
-    vi-mode
-    colorize
-    sudo
+plugins=(
+    git
+    sudo    
+    zsh-interactive-cd
+    zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -93,62 +104,10 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-#
 #--------Alias-------
-#
-##.......UNIX........
-#
-alias reload='source ~/.zshrc'
-alias reloadtmux='tmux source ~/.tmux.conf'
-alias reloadbash='source ~/.bashrc'
-alias lsl='exa -l --color=always --group-directories-first'
-alias lsll="exa -al --color=always --group-directories-first"
-alias r='ranger'
-alias c='clear'
-alias p3='python3'
-alias wincl='~/Tresors/organic/Uni/Computerlinguistik'
-alias winal='~/Tresors/organic/Uni/Almanistik'
-alias winpriv='~/Tresors/privat'
-alias bakgr='~/Tresors/privat/Bilder/backgrounds'
-alias hdd='/run/media/HDD'
-alias ..='cd ..'
-alias ssn='sudo shutdown now'
-alias sre='sudo reboot'
-#
-##.......VPN.........
-#
-alias vpn-recent='sudo protonvpn r'
-alias vpn-new='sudo protonvpn c'
-alias vpn-dc='sudo protonvpn d'
-#
-##.......PyWal.......
-#
-# Import colorscheme from 'wal' asynchronously
-# &   # Run the process in the background.
-# ( ) # Hide shell job control messages.
-(cat ~/.cache/wal/sequences &)
 
-# Alternative (blocks terminal for 0-3ms)
-cat ~/.cache/wal/sequences
+##.......Ranger......
 
-# To add support for TTYs this line can be optionally added.
-source ~/.cache/wal/colors-tty.sh
-
-alias walchange='wal -i /home/jova/Tresors/privat/Bilder/backgrounds'
-alias walvillage='wal -i /home/jova/Tresors/privat/Bilder/backgrounds/village_in_alps.jpg'
-alias wallight='wal -i /home/jova/Tresors/privat/Bilder/backgrounds/beach_with_palm.png'
-alias walneutr='wal -i /home/jova/Tresors/privat/Bilder/backgrounds/osaka-awaza-junction.jpg'
-alias walsyx='wal -i /home/jova/Tresors/privat/Bilder/backgrounds/ami_car_dark.png'
-
-#---------RANGER Fix-------
 ranger() {
     if [ -z "$RANGER_LEVEL" ]; then
         /usr/bin/ranger "$@"
@@ -156,8 +115,60 @@ ranger() {
         exit
     fi
 }
+
+##.......Reload......
+alias reload='source ~/.zshrc'
+alias reloadtmux='tmux source ~/.tmux.conf'
+alias reloadbash='source ~/.bashrc'
+
+
+##.......Unix........
+alias lsl='exa -l --color=always --group-directories-first'
+alias lsll="exa -al --color=always --group-directories-first"
+alias r='ranger'
+alias c='clear'
+alias p3='python3'
+alias wincl='~/Tresors/organic/Uni/Computerlinguistik'
+alias organic='~/Tresors/organic/'
+alias ..='cd ..'
+alias winal='~/Tresors/organic/Uni/Almanistik'
+
+##......System CMD...
+alias bat='acpi'
+alias b+='sudo brightnessctl set +10%'
+alias b-='sudo brightnessctl set 10%-'
+alias ssn='sudo shutdown now'
+alias sre='sudo reboot'
+alias config='/usr/bin/git --git-dir=$HOME/dotfiles_deb/ --work-tree=$HOME'
+alias vnim='nvim'
+
+# Import colorscheme from 'wal' asynchronously
+# &   # Run the process in the background.
+# ( ) # Hide shell job control messages.
+# Not supported in the "fish" shell.
+#(cat ~/.cache/wal/sequences &)
+
+#cat ~/.cache/wal/sequences
+
+#source ~/.cache/wal/colors-tty.sh
+
+alias walchange='wal -i /home/jova/Tresors/privat/Bilder/backgrounds'
+alias wallight='wal -i /home/jova/Tresors/privat/Bilder/backgrounds/beach_with_palm.png'
+alias waldark='wal -i /home/jova/Tresors/privat/Bilder/backgrounds/village_in_alps.jpg'
+alias walyellow='wal -i /home/jova/Tresors/privat/Bilder/backgrounds/yellow_dark_theater.png'
+alias walkking='wal -i /home/jova/Tresors/privat/Bilder/backgrounds/yellow_dark_theater.png'
+# BEST THEMES for wal:
+# -- ashes (dark vibey color scheme with green red blue balance, good for python)
+# -- base16-gruvbox-medium (balanced gruvbox theme for vibey backgrounds)
+# -- materlaler (blue toned balanced palette, good for me and my eyes)
+# -- base16-materia (great dull neon type theme)
+# -- base16-material (very good for daily use)
+# -- base16-harmonic (vibe baby, also nice for dark eveninv daily use)
+# -- base16-material-palenight.json. (calm dark theme)
+# -- base16-seti
+# -- vscode.json (great coding theme)
+# -- sexy-neon
 #
-#--------Xmodmap fix-------
-xmodmap -e 'clear Mod1'
-xmodmap -e 'add Mod1 = Alt_L Meta_L'
-xmodmap -e 'clear lock'
+# -- tempus_dawn -l (very calm light theme, not in your face)
+# -- base16-cuptertino (solid light theme)
+# -- base16-github -l (very balanced light theme with dark pumpy colors)

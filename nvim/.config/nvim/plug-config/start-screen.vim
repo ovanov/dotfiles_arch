@@ -11,7 +11,9 @@ let g:startify_bookmarks = [
             \ { 'c': '~/.config/qtile/config.py' },
             \ { 'i': '~/.config/nvim/init.vim' },
             \ { 'z': '~/.zshrc' },
+            \ { 'w': '~/.config/nvim/keys/which-key.vim' },
             \ { 'p': '~/.config/nvim/vim-plug/plugins.vim' },
+            \ { 'al': '~/.config/alacritty/alacritty.yml' },
             \ { 'uni' : '~/Tresors/organic/Uni'},
             \ '~/Tresors/privat/Bilder',
             \ ]
