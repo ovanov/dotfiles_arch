@@ -22,16 +22,15 @@ autocmd! FileType which_key
 autocmd  FileType which_key set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
 
-" Save file evil mode like
+" Save file evil mode like !!
 let g:which_key_map.f = { 
     \'name' : '+file' ,
     \ 'f' : [':Files'    , 'Files in project'],
     \ 'l' : [':Lines'    , 'Lines in Project'],
+    \ 's' : [':write'    , 'Save File'],
     \ 'p' : [':e ~/.config/nvim/init.vim'    , 'Personal config'],
     \}
 
-nnoremap <silent> <leader>fs :update<CR>
-let g:which_key_map.f.s = 'save-file'
 
 " Single mappings
 let g:which_key_map['c'] = [ '<Plug>NERDCommenterToggle'  , 'comment' ]
@@ -126,5 +125,10 @@ let g:which_key_map.d = {
             \ 'w' : [':cd ~/Tresors/dev/python/web', 'web'],
             \}
 
+let g:which_key_map.R = {
+            \ 'name' : 'Reload',
+            \ 'R' : [':so ~/.config/nvim/init.vim', 'init.vim'],
+            \ 'S' : [':so %'    , 'this buffer'],
+            \}
 "" Register which key map
 call which_key#register('<Space>', "g:which_key_map")

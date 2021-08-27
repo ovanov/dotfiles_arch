@@ -1,4 +1,4 @@
-set guifont=JetBrainsMono\ Nerd\ Font:h12
+set guifont=JetBrainsMono\ Nerd\ Font:h11.5
 let g:neovide_refresh_rate=60
 let g:neovide_cursor_trail_length=0.1
 

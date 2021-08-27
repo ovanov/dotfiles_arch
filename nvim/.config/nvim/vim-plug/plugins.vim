@@ -24,17 +24,15 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     "" Colorscheme
     Plug 'ap/vim-css-color'
     Plug 'joshdick/onedark.vim'
+    Plug 'NLKNguyen/papercolor-theme'
 
     "Terminal
     Plug 'voldikss/vim-floaterm'
 
     " Better Syntax Support
-     Plug 'sheerun/vim-polyglot'
-    "Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     
     " File Explorer
-    Plug 'scrooloose/NERDTree'
-    Plug 'jistr/vim-nerdtree-tabs'
     Plug 'francoiscabrol/ranger.vim'
     Plug 'rbgrouleff/bclose.vim'
 
@@ -72,13 +70,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     """ LANGUAGE SUPPORT
     " Coc
     Plug 'neoclide/coc.nvim', {'branch': 'release'} 
+    
     " Snippets
     Plug 'honza/vim-snippets' 
+    
     " Markdown preview
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
-    " LSP language servers
-    "Plug 'neovim/nvim-lspconfig'
-    "Plug 'hrsh7th/nvim-compe'
 
 call plug#end()

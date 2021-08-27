@@ -172,3 +172,14 @@ alias walkking='wal -i /home/jova/Tresors/privat/Bilder/backgrounds/yellow_dark_
 # -- tempus_dawn -l (very calm light theme, not in your face)
 # -- base16-cuptertino (solid light theme)
 # -- base16-github -l (very balanced light theme with dark pumpy colors)
+# Import colorscheme from 'wal' asynchronously
+# &   # Run the process in the background.
+# ( ) # Hide shell job control messages.
+# Not supported in the "fish" shell.
+(cat ~/.cache/wal/sequences &)
+
+# Alternative (blocks terminal for 0-3ms)
+cat ~/.cache/wal/sequences
+
+# To add support for TTYs this line can be optionally added.
+source ~/.cache/wal/colors-tty.sh

@@ -6,22 +6,17 @@
 
 "" ... General Conf ...
 
-"  Plugins and Settings / Start screen
+"  Plugins and Settings
 source $HOME/.config/nvim/vim-plug/plugins.vim
 source $HOME/.config/nvim/general/settings.vim
 source $HOME/.config/nvim/plug-config/start-screen.vim
-
-
 
 "" ... Color and Theme ...
 
 " Statusline
 source $HOME/.config/nvim/themes/airline.vim
-" Wal
-source $HOME/.config/nvim/colors/wal.vim
 " Icons
 luafile $HOME/.config/nvim/lua/plugins/nvim-devicons.lua
-
 
 
 "" ... Utility ...
@@ -41,14 +36,16 @@ source $HOME/.config/nvim/plug-config/quickscope.vim
 " Which Key
 source $HOME/.config/nvim/keys/which-key.vim
 
+"" ... NEOVIDE conf ...
+source $HOME/.config/nvim/general/nvide.vim
+
+"" ... THEME conf ...
+source $HOME/.config/nvim/colors/theme.vim
 
 
 "" Coc setup language support
 source $HOME/.config/nvim/plug-config/coc.vim
 " MarkdownPreview
 source $HOME/.config/nvim/plug-config/md-preview.vim
-
-
-
-"" ... NEOVIDE conf ...
-source $HOME/.config/nvim/general/nvide.vim
+" Treesitter
+source $HOME/.config/nvim/plug-config/treesitter.vim
