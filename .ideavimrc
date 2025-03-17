@@ -1,0 +1,119 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+" Source your .vimrc
+source ~/.vimrc
+
+set number
+set relativenumber
+
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set wrapscan
+
+set gdefault
+set history=100
+set scrolloff=8 sidescrolloff=10
+set clipboard=unnamedplus
+
+
+"""" Leader Key
+let mapleader=" "
+
+"""" IDE Settings / Actions
+map <leader>/r <Action>(Run)
+map <leader>/d <Action>(Debug)
+map <leader>/e <Action>(RunConfiguration)
+map <leader>e <Action>(ActivateProjectToolWindow)
+map <leader>g <Action>(ActivateVersionControlToolWindow)
+map <leader>c <Action>(ActivateCommitToolWindow)
+
+""""" Window Navigation / Management
+nmap <leader>wh <C-w>h
+nmap <leader>wj <C-w>j
+nmap <leader>wk <C-w>k
+nmap <leader>wl <C-w>l
+
+nmap <leader>wsv :vs<CR>
+nmap <leader>wsh :sp<CR>
+nmap <leader>wq :q<CR>
+
+"""" File Navigation
+" Basic
+nnoremap <C-i> :action Back<CR>
+nnoremap <C-o> :action Forward<CR>
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+
+nmap <leader>ff :action GotoFile<CR>
+nmap <leader>fc :action GotoClass<CR>
+nmap <leader>fg :action FindInPath<CR>
+nmap <leader>fs :action SaveAll<CR>
+nmap <leader>a :action GotoAction<CR>
+
+nmap gd :action GotoImplementation<CR>
+nmap gD :action ShowUsages<CR>
+
+" Tabs
+nmap <C-m> :action PreviousTab<CR>
+nmap <C-.> :action NextTab<CR>
+
+"""" Editor
+" Information
+nmap <C-p> :action ParameterInfo<CR>
+nmap <leader>n :action GotoNextError<CR>
+
+" Code Editing
+" don't overwrite registers when pasting over selection
+vnoremap p pgvy
+
+" don't lose selection when indenting
+vnoremap < <gv
+vnoremap > >gv
+vnoremap = =gv
+
+" Refactoring
+nmap <leader>rr :action RenameElement<CR>
+vmap <leader>rr :action RenameElement<CR>
+
+" extract method
+nmap <leader>rem :action ExtractFunction<CR>
+vmap <leader>rem :action ExtractFunction<CR>
+
+nmap <leader>ro :action OptimizeImports<CR>
+
+" Font Size
+nmap + :action EditorIncreaseFontSize<CR>
+nmap - :action EditorDecreaseFontSize<CR>
+nmap <leader>= :action EditorResetFontSize<CR>
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+" Sneak
+set sneak
+" quickscope
+set quickscope
+set qs_highlight_on_keys=['f', 'F', 't', 'T']
+" which key
+set which-key
+set notimeout
+
+
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
